@@ -26,7 +26,7 @@ def initialize_db_logger():
     logger_db_client = logging.getLogger("tortoise.db_client")
     logger_db_client.setLevel(log_level)
     logger_db_client.addHandler(sh)
-    fh = logging.FileHandler(filename='ondc_echo.log')
+    fh = logging.FileHandler(filename=LOG_SETTINGS.file_name)
     fh.setFormatter(file_fmt)
     logger_tortoise = logging.getLogger("tortoise")
     logger_tortoise.setLevel(logging.INFO)

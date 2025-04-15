@@ -61,6 +61,7 @@ class LogSettings(BaseSettings):
         level (int): The log level. Defaults to LogLevel.INFO.
     """
     level: int = Field(default=LogLevel.INFO.value)
+    file_name :str = Field(default='ondc_log')
 
     class Config:
         env_prefix = "LOG_"

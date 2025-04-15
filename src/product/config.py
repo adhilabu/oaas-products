@@ -1,13 +1,14 @@
 from elasticsearch import AsyncElasticsearch, Elasticsearch
 from sentence_transformers import SentenceTransformer
 
-from src.product.constants import ELASTICSEARCH_PASSWORD, ELASTICSEARCH_USERNAME, ELASTICSEARCH_URL
+from src.product.constants import ELASTICSEARCH_CERT_PATH, ELASTICSEARCH_PASSWORD, ELASTICSEARCH_USERNAME, ELASTICSEARCH_URL
 
 
 asy_es = AsyncElasticsearch(
     hosts=[ELASTICSEARCH_URL],
     basic_auth=(ELASTICSEARCH_USERNAME, ELASTICSEARCH_PASSWORD),
-    verify_certs=False,
+    verify_certs=True,
+    ca_certs=ELASTICSEARCH_CERT_PATH,
     timeout=30,
     retry_on_timeout=True,
     max_retries=3,
@@ -16,7 +17,8 @@ asy_es = AsyncElasticsearch(
 es = Elasticsearch(
     hosts=[ELASTICSEARCH_URL],
     basic_auth=(ELASTICSEARCH_USERNAME, ELASTICSEARCH_PASSWORD),
-    verify_certs=False,
+    verify_certs=True,
+    ca_certs=ELASTICSEARCH_CERT_PATH,
     timeout=30,
     retry_on_timeout=True,
     max_retries=3,
