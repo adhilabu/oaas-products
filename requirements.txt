@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sentence-transformers
+elasticsearch
+pandas
+scikit-learn
+python-multipart
+tortoise-orm
+pydantic
+pydantic_settings
